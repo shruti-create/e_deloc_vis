@@ -14,7 +14,7 @@ Before you begin, ensure you have the following installed:
 
 1. **Clone the Repository**
 
-   Start by cloning the project repository to your local machine:
+   Start by cloning the project repository to your local machine
 
 2. **Install Node Modules**
     In the frontend directory, install the necessary Node modules:
