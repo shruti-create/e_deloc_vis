@@ -33,5 +33,6 @@ Before you begin, ensure you have the following installed:
     npm start   
 
 5. **Access the Application**
-    http://127.0.0.1:3000 or http://localhost:3000
+    http://127.0.0.1:3000
+   
  
