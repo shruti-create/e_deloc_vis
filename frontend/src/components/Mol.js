@@ -21,6 +21,19 @@ const MolecularViewer = ({ filePath }) => {
                 viewer.setStyle({}, { stick: {radius: 0.1}, sphere: {radius: 0.5} });
                 viewer.zoomTo();
                 viewer.render();
+                let isAnimating = true;
+                function animate() {
+                    if(isAnimating){
+                        viewer.rotate(1, {y:0.5});
+                        viewer.render();
+                        requestAnimationFrame(animate);
+                    }
+                }
+                animate();
+                viewer.container.addEventListener('click', function() {
+                    isAnimating = !isAnimating; 
+                    if (isAnimating) animate(); 
+                });
             })
             .catch((error) => {
                 console.error("Error loading .mol2 file:", error);

@@ -7,10 +7,16 @@ function App() {
   const [openPlotIndex, setOpenPlotIndex] = useState(0);
   const [theta, setTheta] = useState(0); 
   const [phi, setPhi] = useState(0);
+  const instructions = '* Graph displays changes in energy due to electron delocalization based on changes the amount the polymer is bent \n'+
+                      '* Clicking on the different Phi values will change the graph to show the electron delocalization based on changes in Theta at the specific Phi value \n'+
+                      '* Clicking on any point on the graphs will display a Dimethyl Naphthalene Dicarboximide Thiophene with the bends and torsions for the specified value of Phi and Theta \n' + 
+                      '* Clicking on the polymer displayed will stop the animation until re-clicked \n'+ 
+                      '* Other features for the molecule include the ability to drag, zoom-in, and zoom-out'
+
 
   const handleClick = (index, phi) => {
     setPhi(phi);
-    setOpenPlotIndex(openPlotIndex === index ? null : index);
+    setOpenPlotIndex(openPlotIndex === index ? index : index);
   };
 
   const handlePointClick = (xValue) => {
@@ -45,6 +51,12 @@ function App() {
       <div style={{ position: 'fixed', top: '240px', left: '900px', border: "2px solid black"}}>
         <Mol2Viewer filePath={currentFilePath}/>
       </div>
+      <h3 style ={{position: 'fixed', top: '750px',}}>
+        Features and Instructions 
+      </h3>
+      <text style ={{position: 'fixed', top: '800px',whiteSpace: 'pre-line'}}>
+        {instructions}
+      </text>
     </div>
   );
 }
